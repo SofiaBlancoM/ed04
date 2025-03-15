@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Clase llamada Agenda, que contiene una lista de contactos.
  */
-public class Agenda {
+public class Agenda implements IAgenda {
     private List<Persona> contacts; // Lista de Contacto
 
     /**
@@ -20,6 +20,7 @@ public class Agenda {
      * @param name nombre del contacto.
      * @param phone teléfono del contacto.
      */
+    @Override
     public void addContact(String name, String phone) {
         boolean exists = false;
         for (Persona c : contacts) {
@@ -40,6 +41,7 @@ public class Agenda {
      * Método para eliminar contactos existentes dentro de la lista de contactos.
      * @param name nombre del contacto.
      */
+    @Override
     public void removeContact(String name) {
         Iterator<Persona> it = contacts.iterator();
 
@@ -58,6 +60,7 @@ public class Agenda {
      * @param oldPhone teléfono antiguo.
      * @param newPhone teléfono nuevo.
      */
+    @Override
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
         for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
@@ -76,6 +79,7 @@ public class Agenda {
      * Getter.
      * @return
      */
+    @Override
     public List<Persona> getContacts() {
         return this.contacts;
     }

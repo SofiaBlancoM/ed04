@@ -2,13 +2,24 @@ package org.example;
 
 import java.util.*;
 
+/**
+ * Clase llamada Agenda, que contiene una lista de contactos.
+ */
 public class Agenda {
     private List<Contacto> contacts; // Lista de Contacto
 
+    /**
+     * Constructor.
+     */
     public Agenda() {
         this.contacts = new ArrayList<>();
     }
 
+    /**
+     * Método para añadir nuevos contactos.
+     * @param name nombre del contacto.
+     * @param phone teléfono del contacto.
+     */
     public void addContact(String name, String phone) {
         boolean exists = false;
         for (Contacto c : contacts) {
@@ -25,6 +36,10 @@ public class Agenda {
         }
     }
 
+    /**
+     * Método para eliminar contactos existentes dentro de la lista de contactos.
+     * @param name nombre del contacto.
+     */
     public void removeContact(String name) {
         Iterator<Contacto> it = contacts.iterator();
 
@@ -37,6 +52,12 @@ public class Agenda {
         }
     }
 
+    /**
+     * Método para modificar el número de teléfono de un contacto concreto.
+     * @param name nombre del contacto.
+     * @param oldPhone teléfono antiguo.
+     * @param newPhone teléfono nuevo.
+     */
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
         for (Contacto c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
@@ -51,6 +72,10 @@ public class Agenda {
         }
     }
 
+    /**
+     * Getter.
+     * @return
+     */
     public List<Contacto> getContacts() {
         return this.contacts;
     }
